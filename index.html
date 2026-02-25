@@ -5,12 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Beginning of Forever</title>
     <style>
-        /* 背景にメインの写真を1枚設定するよ */
         body {
             font-family: 'Garamond', serif;
             margin: 0;
             padding: 0;
-            /* 背景画像の名前をGitHubに合わせて半角スペース入りの 'Photo (1).jpg' にしたよ */
             background: linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.6)), 
                         url('Photo (1).jpg'); 
             background-size: cover;
@@ -22,8 +20,6 @@
             align-items: center;
             height: 100vh;
         }
-
-        /* ふわふわ流れるギャラリーの魔法 */
         .floating-gallery {
             position: fixed;
             top: 0;
@@ -34,24 +30,20 @@
             pointer-events: none;
             opacity: 0.5;
         }
-
         .floating-img {
             position: absolute;
-            width: 120px; /* スマホで見やすいように少し小さく調整したよ */
+            width: 120px;
             bottom: -200px;
             border-radius: 4px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
             animation: floatUp 20s linear infinite;
         }
-
         @keyframes floatUp {
             0% { transform: translateY(0) rotate(0deg); opacity: 0; }
             10% { opacity: 1; }
             90% { opacity: 1; }
             100% { transform: translateY(-120vh) rotate(20deg); opacity: 0; }
         }
-
-        /* メインの白いカード */
         .container {
             background: rgba(255, 255, 255, 0.9);
             padding: 40px 25px;
@@ -62,24 +54,8 @@
             backdrop-filter: blur(5px);
             text-align: center;
         }
-
-        h1 { 
-            color: #c5a059; 
-            letter-spacing: 2px; 
-            text-transform: uppercase; 
-            font-weight: 300;
-            font-size: 1.5rem; /* スマホ向けに微調整 */
-            margin-bottom: 15px;
-        }
-
-        p { 
-            color: #555; 
-            font-style: italic; 
-            line-height: 1.6; 
-            margin-bottom: 30px;
-            font-size: 0.9rem;
-        }
-
+        h1 { color: #c5a059; letter-spacing: 2px; text-transform: uppercase; font-weight: 300; font-size: 1.5rem; margin-bottom: 15px; }
+        p { color: #555; font-style: italic; line-height: 1.6; margin-bottom: 30px; font-size: 0.9rem; }
         .drive-link {
             display: inline-block;
             background-color: #c5a059;
@@ -92,10 +68,6 @@
             transition: 0.3s;
             border-radius: 2px;
         }
-
-        .drive-link:hover { background-color: #b08e4d; }
-
-        /* モバイル用の最終調整 */
         @media (max-width: 600px) {
             h1 { font-size: 1.3rem; }
             p { font-size: 0.85rem; }
@@ -105,37 +77,23 @@
     </style>
 </head>
 <body>
-
 <div class="floating-gallery" id="bgGallery"></div>
-
 <div class="container">
     <h1>The Beginning of Forever</h1>
-    <p>
-        "A beautiful journey begins with a single step.<br>
-        Relive the moments of the day you said 'Yes'."
-    </p>
+    <p>"A beautiful journey begins with a single step.<br>Relive the moments of the day you said 'Yes'."</p>
     <a href="https://photos.app.goo.gl/Fbo2ULNKXmz5D7GB7" target="_blank" class="drive-link">View & Download Photos</a>
 </div>
-
 <script>
-    // 背景で写真をふわふわさせるスクリプトだよ
     const bgGallery = document.getElementById('bgGallery');
-    
-    // GitHubにある写真の枚数（1〜10）に合わせて表示するよ
     for (let i = 1; i <= 10; i++) {
         const img = document.createElement('img');
-        // GitHubのファイル名に合わせて半角スペースを入れた名前にしているよ
-        img.src = `Photo (${i}).jpg`;
+        img.src = `Photo (${i}).jpg`; // カッコの前のスペースも完璧だよ！
         img.className = 'floating-img';
-        
-        // ランダムな配置で自然に見せるよ
         img.style.left = Math.random() * 80 + '%';
         img.style.animationDelay = (i * 2) + 's';
         img.style.animationDuration = (Math.random() * 10 + 15) + 's';
-        
         bgGallery.appendChild(img);
     }
 </script>
-
 </body>
 </html>
