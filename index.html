@@ -9,7 +9,6 @@
             font-family: 'Garamond', serif;
             margin: 0;
             padding: 0;
-            /* 背景画像をPhoto (1).jpgに固定。半角スペースを正確に入れたよ */
             background: linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.6)), 
                         url('Photo (1).jpg'); 
             background-size: cover;
@@ -87,7 +86,6 @@
 
     <script>
         const bgGallery = document.getElementById('bgGallery');
-        // 写真のファイル名「Photo (番号).jpg」に合わせて、スペースを厳密に指定したよ
         for (let i = 1; i <= 10; i++) {
             const img = document.createElement('img');
             img.src = "Photo (" + i + ").jpg"; 
