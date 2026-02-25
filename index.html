@@ -9,6 +9,7 @@
             font-family: 'Garamond', serif;
             margin: 0;
             padding: 0;
+            /* 背景画像をPhoto (1).jpgに固定。半角スペースを正確に入れたよ */
             background: linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.6)), 
                         url('Photo (1).jpg'); 
             background-size: cover;
@@ -77,23 +78,25 @@
     </style>
 </head>
 <body>
-<div class="floating-gallery" id="bgGallery"></div>
-<div class="container">
-    <h1>The Beginning of Forever</h1>
-    <p>"A beautiful journey begins with a single step.<br>Relive the moments of the day you said 'Yes'."</p>
-    <a href="https://photos.app.goo.gl/Fbo2ULNKXmz5D7GB7" target="_blank" class="drive-link">View & Download Photos</a>
-</div>
-<script>
-    const bgGallery = document.getElementById('bgGallery');
-    for (let i = 1; i <= 10; i++) {
-        const img = document.createElement('img');
-        img.src = `Photo (${i}).jpg`; // カッコの前のスペースも完璧だよ！
-        img.className = 'floating-img';
-        img.style.left = Math.random() * 80 + '%';
-        img.style.animationDelay = (i * 2) + 's';
-        img.style.animationDuration = (Math.random() * 10 + 15) + 's';
-        bgGallery.appendChild(img);
-    }
-</script>
+    <div class="floating-gallery" id="bgGallery"></div>
+    <div class="container">
+        <h1>The Beginning of Forever</h1>
+        <p>"A beautiful journey begins with a single step.<br>Relive the moments of the day you said 'Yes'."</p>
+        <a href="https://photos.app.goo.gl/Fbo2ULNKXmz5D7GB7" target="_blank" class="drive-link">View & Download Photos</a>
+    </div>
+
+    <script>
+        const bgGallery = document.getElementById('bgGallery');
+        // 写真のファイル名「Photo (番号).jpg」に合わせて、スペースを厳密に指定したよ
+        for (let i = 1; i <= 10; i++) {
+            const img = document.createElement('img');
+            img.src = "Photo (" + i + ").jpg"; 
+            img.className = 'floating-img';
+            img.style.left = Math.random() * 80 + '%';
+            img.style.animationDelay = (i * 2) + 's';
+            img.style.animationDuration = (Math.random() * 10 + 15) + 's';
+            bgGallery.appendChild(img);
+        }
+    </script>
 </body>
 </html>
