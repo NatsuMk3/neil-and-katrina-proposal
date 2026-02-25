@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Beginning of Forever</title>
+    <style>
+        body {
+            font-family: 'Garamond', 'Georgia', serif;
+            background-color: #fcfaf7;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        header {
+            padding: 80px 20px;
+            background-color: #fff;
+            border-bottom: 1px solid #eee;
+        }
+        h1 {
+            font-weight: 300;
+            letter-spacing: 4px;
+            color: #c5a059;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        .message {
+            font-style: italic;
+            font-size: 1.2rem;
+            color: #777;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .photo-card {
+            background: white;
+            padding: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            border-radius: 4px;
+        }
+        /* ここが縦横調整のポイント！ */
+        .photo-wrapper {
+            width: 100%;
+            height: 400px; /* 全ての写真の表示高さを統一するよ */
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f0f0f0;
+        }
+        .gallery img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* 写真全体が見えるように収めるよ。背景を埋めたいならcoverに変えてね */
+            background-color: #fff;
+        }
+        .download-btn {
+            display: block;
+            margin: 15px auto 5px;
+            text-decoration: none;
+            color: #c5a059;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 1px solid #c5a059;
+            padding: 8px 0;
+            width: 90%;
+            transition: 0.3s;
+        }
+        .download-btn:hover {
+            background: #c5a059;
+            color: white;
+        }
+        footer {
+            padding: 80px 20px;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>The Beginning of Forever</h1>
+    <p class="message">Congratulations for Neil and Katrina</p>
+</header>
+
+<div class="gallery" id="photoGallery"></div>
+
+<footer>
+    <p>&copy; 2026 | Captured with Love</p>
+</footer>
+
+<script>
+    const gallery = document.getElementById('photoGallery');
+    const totalPhotos = 87;
+
+    for (let i = 1; i <= totalPhotos; i++) {
+        const fileName = `Photo (${i}).jpg`; 
+        const card = document.createElement('div');
+        card.className = 'photo-card';
+        card.innerHTML = `
+            <div class="photo-wrapper">
+                <img src="${fileName}" alt="Proposal Moment ${i}" loading="lazy" onerror="this.parentElement.parentElement.style.display='none'">
+            </div>
+            <a href="${fileName}" download="Proposal_Moment_${i}.jpg" class="download-btn">Download Photo</a>
+        `;
+        gallery.appendChild(card);
+    }
+</script>
+
+</body>
+</html>
