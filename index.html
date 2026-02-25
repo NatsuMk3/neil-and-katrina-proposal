@@ -10,8 +10,9 @@
             font-family: 'Garamond', serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), 
-                        url('Photo (1).jpg'); /* ここを一番お気に入りの写真名に変えてね */
+            /* 背景画像の名前をGitHubに合わせて半角スペース入りの 'Photo (1).jpg' にしたよ */
+            background: linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.6)), 
+                        url('Photo (1).jpg'); 
             background-size: cover;
             background-attachment: fixed;
             background-position: center;
@@ -31,13 +32,15 @@
             height: 100%;
             z-index: -1;
             pointer-events: none;
-            opacity: 0.4;
+            opacity: 0.5;
         }
 
         .floating-img {
             position: absolute;
-            width: 150px;
+            width: 120px; /* スマホで見やすいように少し小さく調整したよ */
             bottom: -200px;
+            border-radius: 4px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
             animation: floatUp 20s linear infinite;
         }
 
@@ -54,9 +57,10 @@
             padding: 40px 25px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             border-radius: 4px;
-            width: 85%;
-            max-width: 450px;
+            width: 80%;
+            max-width: 400px;
             backdrop-filter: blur(5px);
+            text-align: center;
         }
 
         h1 { 
@@ -64,7 +68,7 @@
             letter-spacing: 2px; 
             text-transform: uppercase; 
             font-weight: 300;
-            font-size: 1.6rem; /* スマホ向けに少し小さくしたよ */
+            font-size: 1.5rem; /* スマホ向けに微調整 */
             margin-bottom: 15px;
         }
 
@@ -73,7 +77,7 @@
             font-style: italic; 
             line-height: 1.6; 
             margin-bottom: 30px;
-            font-size: 0.95rem; /* 読みやすいバランスに調整 */
+            font-size: 0.9rem;
         }
 
         .drive-link {
@@ -86,13 +90,17 @@
             text-transform: uppercase;
             font-size: 0.8rem;
             transition: 0.3s;
+            border-radius: 2px;
         }
 
-        /* モバイル用の微調整 */
+        .drive-link:hover { background-color: #b08e4d; }
+
+        /* モバイル用の最終調整 */
         @media (max-width: 600px) {
-            h1 { font-size: 1.4rem; }
+            h1 { font-size: 1.3rem; }
             p { font-size: 0.85rem; }
             .container { padding: 30px 20px; }
+            .floating-img { width: 100px; }
         }
     </style>
 </head>
@@ -106,22 +114,23 @@
         "A beautiful journey begins with a single step.<br>
         Relive the moments of the day you said 'Yes'."
     </p>
-    <a href="YOUR_GOOGLE_DRIVE_LINK_HERE" target="_blank" class="drive-link">View & Download Photos</a>
+    <a href="https://photos.app.goo.gl/Fbo2ULNKXmz5D7GB7" target="_blank" class="drive-link">View & Download Photos</a>
 </div>
 
 <script>
     // 背景で写真をふわふわさせるスクリプトだよ
     const bgGallery = document.getElementById('bgGallery');
-    const totalPhotos = 15; // 背景に使う枚数。多すぎると重いから注意！
-
-    for (let i = 1; i <= totalPhotos; i++) {
+    
+    // GitHubにある写真の枚数（1〜10）に合わせて表示するよ
+    for (let i = 1; i <= 10; i++) {
         const img = document.createElement('img');
-        img.src = `Photo (${Math.floor(Math.random() * 87) + 1}).jpg`;
+        // GitHubのファイル名に合わせて半角スペースを入れた名前にしているよ
+        img.src = `Photo (${i}).jpg`;
         img.className = 'floating-img';
         
-        // ランダムな位置と速さを設定するよ
-        img.style.left = Math.random() * 90 + '%';
-        img.style.animationDelay = Math.random() * 15 + 's';
+        // ランダムな配置で自然に見せるよ
+        img.style.left = Math.random() * 80 + '%';
+        img.style.animationDelay = (i * 2) + 's';
         img.style.animationDuration = (Math.random() * 10 + 15) + 's';
         
         bgGallery.appendChild(img);
