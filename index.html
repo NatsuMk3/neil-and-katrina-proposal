@@ -6,119 +6,48 @@
     <title>The Beginning of Forever</title>
     <style>
         body {
-            font-family: 'Garamond', 'Georgia', serif;
+            font-family: 'Garamond', serif;
             background-color: #fcfaf7;
-            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
             margin: 0;
-            padding: 0;
             text-align: center;
         }
-        header {
-            padding: 80px 20px;
-            background-color: #fff;
-            border-bottom: 1px solid #eee;
-        }
-        h1 {
-            font-weight: 300;
-            letter-spacing: 4px;
-            color: #c5a059;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-        }
-        .message {
-            font-style: italic;
-            font-size: 1.2rem;
-            color: #777;
-            max-width: 600px;
-            margin: 0 auto 40px;
-            line-height: 1.6;
-        }
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-            padding: 40px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-        .photo-card {
+        .container {
             background: white;
-            padding: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            display: flex;
-            flex-direction: column;
-            border-radius: 4px;
+            padding: 60px 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-radius: 8px;
+            max-width: 500px;
         }
-        /* ここが縦横調整のポイント！ */
-        .photo-wrapper {
-            width: 100%;
-            height: 400px; /* 全ての写真の表示高さを統一するよ */
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #f0f0f0;
-        }
-        .gallery img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain; /* 写真全体が見えるように収めるよ。背景を埋めたいならcoverに変えてね */
-            background-color: #fff;
-        }
-        .download-btn {
-            display: block;
-            margin: 15px auto 5px;
+        h1 { color: #c5a059; letter-spacing: 3px; text-transform: uppercase; font-weight: 300; }
+        p { color: #777; font-style: italic; line-height: 1.8; margin-bottom: 30px; }
+        .drive-link {
+            display: inline-block;
+            background-color: #c5a059;
+            color: white;
             text-decoration: none;
-            color: #c5a059;
-            font-size: 0.8rem;
+            padding: 15px 30px;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            border: 1px solid #c5a059;
-            padding: 8px 0;
-            width: 90%;
+            font-size: 0.9rem;
             transition: 0.3s;
         }
-        .download-btn:hover {
-            background: #c5a059;
-            color: white;
-        }
-        footer {
-            padding: 80px 20px;
-            font-size: 0.9rem;
-            color: #aaa;
-        }
+        .drive-link:hover { background-color: #b08e4d; }
     </style>
 </head>
 <body>
 
-<header>
+<div class="container">
     <h1>The Beginning of Forever</h1>
-    <p class="message">Congratulations for Neil and Katrina</p>
-</header>
-
-<div class="gallery" id="photoGallery"></div>
-
-<footer>
-    <p>&copy; 2026 | Captured with Love</p>
-</footer>
-
-<script>
-    const gallery = document.getElementById('photoGallery');
-    const totalPhotos = 87;
-
-    for (let i = 1; i <= totalPhotos; i++) {
-        const fileName = `Photo (${i}).jpg`; 
-        const card = document.createElement('div');
-        card.className = 'photo-card';
-        card.innerHTML = `
-            <div class="photo-wrapper">
-                <img src="${fileName}" alt="Proposal Moment ${i}" loading="lazy" onerror="this.parentElement.parentElement.style.display='none'">
-            </div>
-            <a href="${fileName}" download="Proposal_Moment_${i}.jpg" class="download-btn">Download Photo</a>
-        `;
-        gallery.appendChild(card);
-    }
-</script>
+    <p>
+        "A beautiful journey begins with a single step.<br>
+        Relive the moments of the day you said 'Yes'."
+    </p>
+    <a href="YOUR_GOOGLE_DRIVE_LINK_HERE" target="_blank" class="drive-link">View & Download Photos</a>
+</div>
 
 </body>
 </html>
